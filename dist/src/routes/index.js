@@ -5,10 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const ProductsRoutes_1 = __importDefault(require("./ProductsRoutes"));
+const UserRoutes_1 = __importDefault(require("./UserRoutes"));
 const routes = (app) => {
     app.route('/').get((req, res) => {
         res.status(200).send({ titulo: "Api Viamaker" });
     });
-    app.use(express_1.default.json(), ProductsRoutes_1.default);
+    app.use(express_1.default.json(), ProductsRoutes_1.default, UserRoutes_1.default);
 };
 exports.default = routes;

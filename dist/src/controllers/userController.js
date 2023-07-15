@@ -13,25 +13,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-const produto_1 = __importDefault(require("../models/produto"));
+const usuario_1 = __importDefault(require("../models/usuario"));
 class UserController {
 }
 _a = UserController;
-UserController.listarProdutos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UserController.listarUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const Products = yield produto_1.default.find();
+        const Products = yield usuario_1.default.find();
         res.status(200).json(Products);
     }
     catch (err) {
         console.log(err);
     }
 });
-UserController.listarProductPorId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UserController.listarUsuarioPorId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const product = yield produto_1.default.findById(id).exec();
+        const product = yield usuario_1.default.findById(id).exec();
         if (!product) {
-            console.log("produto nao encontrado");
+            console.log("usuário não encontrado");
         }
         else {
             res.status(200).send(product);
@@ -41,9 +41,9 @@ UserController.listarProductPorId = (req, res) => __awaiter(void 0, void 0, void
         console.log(err);
     }
 });
-UserController.cadastrarProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UserController.cadastrarUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const product = new produto_1.default(req.body);
+        const product = new usuario_1.default(req.body);
         const productResultado = yield product.save();
         res.status(201).send(productResultado.toJSON());
     }
@@ -51,34 +51,34 @@ UserController.cadastrarProduct = (req, res) => __awaiter(void 0, void 0, void 0
         console.log(err);
     }
 });
-UserController.atualizarProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UserController.atualizarUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        yield produto_1.default.findByIdAndUpdate(id, { $set: req.body });
+        yield usuario_1.default.findByIdAndUpdate(id, { $set: req.body });
         if (!id) {
-            console.log("produto nao encontrado");
+            console.log("usuário não encontrado");
         }
         else {
-            res.status(200).send({ message: 'Produto atualizado com sucesso' });
+            res.status(200).send({ message: 'usuário não atualizado com sucesso' });
         }
     }
     catch (err) {
         console.log(err);
     }
 });
-UserController.excluirProduto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+UserController.excluirUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const product = yield produto_1.default.findByIdAndDelete(id).exec();
+        const product = yield usuario_1.default.findByIdAndDelete(id).exec();
         if (!product) {
-            console.log("produto nao encontrado");
+            console.log("usuário nãoencontrado");
         }
         else {
-            res.status(200).send({ message: 'Produto removido com sucesso' });
+            res.status(200).send({ message: 'usuário removido com sucesso' });
         }
     }
     catch (err) {
         console.log(err);
     }
 });
-exports.default = ProductController;
+exports.default = UserController;
