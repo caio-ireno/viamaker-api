@@ -14,71 +14,72 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const produto_1 = __importDefault(require("../models/produto"));
+const erro404_1 = __importDefault(require("../erros/erro404"));
 class ProductController {
 }
 _a = ProductController;
-ProductController.listarProdutos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+ProductController.listarProdutos = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const Products = yield produto_1.default.find();
         res.status(200).json(Products);
     }
     catch (err) {
-        console.log(err);
+        next(err);
     }
 });
-ProductController.listarProductPorId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+ProductController.listarProductPorId = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
         const product = yield produto_1.default.findById(id).exec();
         if (!product) {
-            console.log("produto nao encontrado");
+            next(new erro404_1.default("Id do produto não localizado"));
         }
         else {
             res.status(200).send(product);
         }
     }
     catch (err) {
-        console.log(err);
+        next(err);
     }
 });
-ProductController.cadastrarProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+ProductController.cadastrarProduct = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const product = new produto_1.default(req.body);
         const productResultado = yield product.save();
         res.status(201).send(productResultado.toJSON());
     }
     catch (err) {
-        console.log(err);
+        next(err);
     }
 });
-ProductController.atualizarProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+ProductController.atualizarProduct = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
         yield produto_1.default.findByIdAndUpdate(id, { $set: req.body });
         if (!id) {
-            console.log("produto nao encontrado");
+            next(new erro404_1.default("produto nao encontrado"));
         }
         else {
             res.status(200).send({ message: 'Produto atualizado com sucesso' });
         }
     }
     catch (err) {
-        console.log(err);
+        next(err);
     }
 });
-ProductController.excluirProduto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+ProductController.excluirProduto = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
         const product = yield produto_1.default.findByIdAndDelete(id).exec();
         if (!product) {
-            console.log("produto nao encontrado");
+            next(new erro404_1.default("produto nao encontrado"));
         }
         else {
             res.status(200).send({ message: 'Produto removido com sucesso' });
         }
     }
     catch (err) {
-        console.log(err);
+        next(err);
     }
 });
 exports.default = ProductController;
