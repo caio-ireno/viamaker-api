@@ -59,7 +59,7 @@ UserController.atualizarUsuario = (req, res) => __awaiter(void 0, void 0, void 0
             console.log("usuário não encontrado");
         }
         else {
-            res.status(200).send({ message: 'usuário não atualizado com sucesso' });
+            res.status(200).send({ message: 'usuário atualizado com sucesso' });
         }
     }
     catch (err) {
@@ -71,7 +71,7 @@ UserController.excluirUsuario = (req, res) => __awaiter(void 0, void 0, void 0, 
         const id = req.params.id;
         const product = yield usuario_1.default.findByIdAndDelete(id).exec();
         if (!product) {
-            console.log("usuário nãoencontrado");
+            console.log("usuário não encontrado");
         }
         else {
             res.status(200).send({ message: 'usuário removido com sucesso' });

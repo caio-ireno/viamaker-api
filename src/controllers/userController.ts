@@ -44,7 +44,7 @@ class UserController {
       if (!id) {
         console.log("usuário não encontrado")
       } else {
-        res.status(200).send({ message: 'usuário não atualizado com sucesso' });
+        res.status(200).send({ message: 'usuário atualizado com sucesso' });
       }
     } catch (err) {
       console.log(err)
@@ -57,7 +57,7 @@ class UserController {
       const id = req.params.id;
       const product = await UserModel.findByIdAndDelete(id).exec();
       if (!product) {
-        console.log("usuário nãoencontrado")
+        console.log("usuário não encontrado")
       } else {
         res.status(200).send({ message: 'usuário removido com sucesso' });
       }
