@@ -5,7 +5,7 @@ dotenv.config()
 
 const dbPassword = process.env.DB_PASSWORD
 
-mongoose.connect(`mongodb+srv://caioireno:${dbPassword}@viamaker.aifojlv.mongodb.net/`)
+mongoose.connect(`mongodb+srv://caioireno:${dbPassword}@viamaker.aifojlv.mongodb.net/viamaker`)
 
 const db = mongoose.connection
 

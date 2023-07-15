@@ -9,5 +9,5 @@ const ProductSchema = new mongoose_1.default.Schema({
     nome: { type: String, required: [true, "nome obrigatorio"] },
     description: { type: String, required: [true, "Descrição obrigatoria"] },
 });
-const ProductModel = mongoose_1.default.model("produto", ProductSchema);
+const ProductModel = mongoose_1.default.model("produtos", ProductSchema);
 exports.default = ProductModel;
