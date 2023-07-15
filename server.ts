@@ -1,6 +1,6 @@
 import app from './src/app'
 
-const port = process.env.PORT || 5005;
+const port = process.env.DB_PORT;
 
 
 app.listen(port, () => {
