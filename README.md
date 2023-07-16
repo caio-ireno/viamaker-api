@@ -1,9 +1,3 @@
-# Run Server
-
-`npm run dev`
-
-Cors definido na porta 3000 do front end.
-
 ## build
 
 Responsável por realizar a construção (build) do projeto usando o TypeScript Compiler (tsc). Ao executar esse comando, o TypeScript compila todos os arquivos `.ts` presentes no projeto e gera os respectivos arquivos `.js` na pasta de saída (normalmente definida no arquivo de configuração tsconfig.json). Esses arquivos JavaScript transpilados são usados para executar o projeto.
@@ -15,10 +9,6 @@ Responsável por iniciar a execução do projeto. Ele utiliza o `Node.js` para e
 ## dev
 
 Este script é usado durante o desenvolvimento do projeto e utiliza o pacote `nodemon` para monitorar as alterações nos arquivos `.ts`. O `nodemon` é uma ferramenta que ajuda a reiniciar automaticamente o servidor sempre que houver mudanças nos arquivos do projeto. O comando `npm run build` é executado para garantir que o projeto seja recompilado pelo TypeScript antes de cada reinício do servidor. Após a recompilação, o comando `node dist/server.js` é usado para iniciar o servidor atualizado.
-
-## lint
-
-Responsável por executar o linter (ferramenta de análise estática de código) no projeto usando o ESLint. Ao executar o comando `eslint .`, o ESLint analisa todos os arquivos JavaScript e TypeScript no projeto e relata quaisquer problemas de estilo ou práticas não recomendadas, ajudando a manter um código mais limpo e consistente.
 
 # Arquivos de Erro
 
