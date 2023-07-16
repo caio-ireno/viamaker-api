@@ -13,10 +13,11 @@ dbConnection_1.default.on("error", console.log.bind(console, 'Erro de conexão')
 dbConnection_1.default.once("open", () => {
     console.log('conexão com o banco feita com sucesso');
 });
+const cors_env = process.env.CORS;
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
-    origin: 'http://localhost:5173'
+    origin: cors_env
 }));
 (0, routes_1.default)(app);
 app.use(manipulador404_1.default);

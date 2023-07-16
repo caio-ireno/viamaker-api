@@ -1,4 +1,8 @@
-# Scripts
+# Run Server
+
+`npm run dev`
+
+Cors definido na porta 3000 do front end.
 
 ## build
 

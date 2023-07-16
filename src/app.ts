@@ -11,10 +11,11 @@ db.once("open", () => {
   console.log('conexão com o banco feita com sucesso')
 })
 
+const cors_env = process.env.CORS
 const app = express();
 app.use(express.json())
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: cors_env
 }));
 routes(app);
 app.use(manipulador404)

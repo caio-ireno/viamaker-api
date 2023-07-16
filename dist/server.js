@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./src/app"));
-const port = process.env.DB_PORT;
+const port = process.env.SERVER_PORT;
 app_1.default.listen(port, () => {
     console.log(`Servidor escutando em http://localhost:${port}`);
 });

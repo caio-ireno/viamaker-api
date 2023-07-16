@@ -3,9 +3,9 @@ import dotenv from "dotenv"
 
 dotenv.config()
 
-const dbPassword = process.env.DB_PASSWORD
+const Password = process.env.DB_PASSWORD
 
-mongoose.connect(`mongodb+srv://caioireno:${dbPassword}@viamaker.aifojlv.mongodb.net/viamaker`)
+mongoose.connect(`mongodb+srv://caioireno:${Password}@viamaker.aifojlv.mongodb.net/viamaker`)
 
 const db = mongoose.connection
 
