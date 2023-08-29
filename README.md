@@ -1,6 +1,6 @@
 # Viamaker Backend Test
 
-This is a project created for a Back end test.
+Welcome to the Viamaker Backend test! This repository contains the backend application built with modern web technologies to showcase a user-friendly server. The Frontend for this project can be found in the [Viamaker Test Frontend Repository](https://github.com/caio-ireno/viamaker-web). This README will guide you through the setup and usage of the backend project.
 
 ## Installation
 
